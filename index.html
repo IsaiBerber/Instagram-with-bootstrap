@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Feed with Bootstrap</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+    
+        .top-box {
+            background-color: #f0f0f0; 
+            height: 200px; 
+            width: 100%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 20px; 
+        }
+        .instagram-section {
+            display: flex;
+            align-items: center; 
+        }
+        .instagram-section i {
+            font-size: 22px; 
+            margin-right: 25px; 
+        }
+        .instagram-section span {
+            font-size: 22px; 
+            font-weight: bold; 
+        }
+        .button-group {
+            display: flex;
+            align-items: center;
+        }
+        .btn-create {
+            margin-right: 20px; 
+        }
+        .dropdown-item.logout {
+            color: red; 
+        }
+        .dropdown-item.logout:hover {
+            background-color: #f8d7da; 
+        }
+        .modal-footer-icons {
+            display: flex;
+            justify-content: flex-start; 
+            gap: 15px; 
+        }
+        .modal-footer-icons button {
+            display: flex;
+            align-items: center;
+        }
+        .modal-footer-icons button i {
+            margin-right: 5px; 
+        }
+        .image-preview {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; 
+            justify-content: center; 
+            margin-top: 15px; 
+        }
+        .image-preview img {
+            width: 380px; 
+            height: auto; 
+            max-width: 100%; 
+        }
+        .vertical-images {
+            display: flex;
+            flex-direction: column; 
+            gap: 10px; 
+            align-items: center; 
+            margin-top: 15px; 
+        }
+        .vertical-images img {
+            width: 380px; 
+            height: auto; 
+        }
+        .centered-title {
+            text-align: center; 
+            margin-top: 15px; 
+        }
+    </style>
+</head>
+<body>
+
+  
+    <div class="top-box">
+        
+        <div class="instagram-section">
+            <i class="fab fa-instagram"></i> 
+            <span>Instagram</span> 
+        </div>
+        
+        
+        <div class="button-group">
+            
+            <button class="btn btn-success btn-create" data-bs-toggle="modal" data-bs-target="#createPostModal">Create a new post</button>
+            
+            
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-cog"></i> 
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Accessibility</a></li>
+                    <li><a class="dropdown-item" href="#">Privacy and data</a></li>
+                    <li><hr class="dropdown-divider"></li> 
+                    <li><a class="dropdown-item logout" href="#">Log out</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container-fluid p-2"></div>
+        <ul class="nav nav-pill justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true"><i
+                        class="fa-solid fa-table-cells"></i></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false"><i class="fa-solid fa-square"></i></a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            
+            <div class="tab-pane fade show active overflow-hidden" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://drexel.edu/~/media/Images/cci/Stories/Remote%20Software%20Engineering-Page.ashx?h=1000&w=1500&hash=6BB2151F2495C52A21F368DADF9D7D9604BC1936" class="img-fluid w-100" alt=""></div>
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://unirfp.unir.net/wp-content/uploads/sites/23/2023/07/devops-1-1.jpg" class="img-fluid w-100" alt=""></div>
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://cdn.prod.website-files.com/64fef88ee8b22d3d21b715a2/657c2bfd9d07f76a47c70ce8_64c0dfda42c1ee625bb4640c_Blog%2520image%2520(1).webp" class="img-fluid w-100" alt=""></div>
+                </div>
+                <div class="row">
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://pandorafms.com/blog/wp-content/uploads/2023/11/DALL%C2%B7E-2023-11-27-13.56.23-A-minimalistic-and-modern-illustration-for-a-blog-post-about-Cloud-Computing.-The-design-includes-simple-symbols-representing-cloud-storage-data-tran.png" class="img-fluid w-100" alt=""></div>
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://d3g5ywftkpzr0e.cloudfront.net/wp-content/uploads/2023/07/13220529/Artificial-Intelligence-in-Indonesia-The-current-state-and-its-opportunities.jpeg" class="img-fluid w-100" alt=""></div>
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://nwc.edu/academics/photos/program-photos/computer-science.jpg" class="img-fluid w-100" alt=""></div>
+                </div>
+                <div class="row">
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://www.theforage.com/blog/wp-content/uploads/2022/12/what-is-cybersecurity.jpg" class="img-fluid w-100" alt=""></div>
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://www.aldape.org.mx/img/sistdig.png" class="img-fluid w-100" alt=""></div>
+                    <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://futureskillsprime.in/sites/default/files/inline-images/iStock-966248982.jpg" class="img-fluid w-100" alt=""></div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade overflow-hidden" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row my-4">
+                    <div class="col-6 mx-auto border rounded p-0">
+                        <div class="d-flex p-2">
+                            <div class="w-100 fs-4">I love Programming!</div>
+                            <small class="align-bottom">08/26</small>
+                        </div>
+                        <img style="object-fit: cover;" src="https://drexel.edu/~/media/Images/cci/Stories/Remote%20Software%20Engineering-Page.ashx?h=1000&w=1500&hash=6BB2151F2495C52A21F368DADF9D7D9604BC1936" class="img-fluid w-100 col-12" alt=""/>
+                        <div class="p-2">
+                            <strong>204 Likes</strong>
+                            <p>This is an example of a very good photo that you can post on instagram</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-6 mx-auto border rounded p-0">
+                        <div class="d-flex p-2">
+                            <div class="w-100 fs-4">Cloud Computing</div>
+                            <small>04/09</small>
+                        </div>
+                        <img style="object-fit: cover;" src="https://pandorafms.com/blog/wp-content/uploads/2023/11/DALL%C2%B7E-2023-11-27-13.56.23-A-minimalistic-and-modern-illustration-for-a-blog-post-about-Cloud-Computing.-The-design-includes-simple-symbols-representing-cloud-storage-data-tran.png" class="img-fluid w-100 col-12" alt=""/>
+                        <div class="p-2">
+                            <strong>26985 Likes</strong>
+                            <p>This is an example of a very good photo that you can post on instagram</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-6 mx-auto border rounded p-0">
+                        <div class="d-flex p-2">
+                            <div class="w-100 fs-4">Digital Systems</div>
+                            <small>06/10</small>
+                        </div>
+                        <img style="object-fit: cover;" src="https://www.aldape.org.mx/img/sistdig.png" class="img-fluid w-100 col-12" alt=""/>
+                        <div class="p-2">
+                            <strong>204 Likes</strong>
+                            <p>This is an example of a very good photo that you can post on instagram</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPostModalLabel">Create a New Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="postCaption" class="form-label">Caption</label>
+                            <textarea class="form-control" id="postCaption" rows="3" placeholder="Write a caption..."></textarea>
+                        </div>
+                        
+                        
+                        <div class="modal-footer-icons">
+                            <button type="button" class="btn btn-light">
+                                <i class="fas fa-camera"></i> 
+                            </button>
+                            <button type="button" class="btn btn-light">
+                                <i class="fas fa-map-marker-alt"></i> 
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+</html>
